@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="goController" class=" com.tamoino.web.controller.GoController">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean id="accountController" class=" com.tamoino.web.controller.AccountController">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean id="entryController" class=" com.tamoino.web.controller.EntryController">
+		<property name="facade" ref="facade" />
+	</bean>
+
+	<bean id="entryGroupController" class=" com.tamoino.web.controller.EntryGroupController">
+		<property name="facade" ref="facade" />
+	</bean>
+
+</beans>

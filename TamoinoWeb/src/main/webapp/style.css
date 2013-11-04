@@ -1,0 +1,253 @@
+
+/****************************/
+/* COLORS					*/
+/****************************/
+
+	p,a { color: #357EC7; }
+	
+/*	body { background-color: #A0C544; } */
+	body { background-color: #99CCFF; }
+
+/*	table { background-color: #FFF284; 	border-color: #FFF7B7; } */
+	table { background-color: #FFF284; 	border-color: #3399FF; }
+
+	p.errorMessage { color: red; }
+	
+	p.resultMessage { color: green; }
+
+	hr { color: #99CCFF; background-color: #99CCFF; height: 1px; border-width: 0px;}
+
+/****************************/
+/* GO BUTTON AND TEXTBOX	*/
+/****************************/
+/* Imageless CSS buttons by CSSButtonGenerator.com */
+
+.goButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea) );
+	background:-moz-linear-gradient( center top, #bddbfa 5%, #80b5ea 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea');
+	background-color:#bddbfa;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+}
+
+.goButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #80b5ea), color-stop(1, #bddbfa) );
+	background:-moz-linear-gradient( center top, #80b5ea 5%, #bddbfa 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80b5ea', endColorstr='#bddbfa');
+	background-color:#80b5ea;
+	text-decoration:none;
+}
+
+.goButton:active {
+	position:relative;
+	top:1px;
+	text-decoration:none;
+}
+
+.button:focus {
+	text-decoration:none;
+}
+
+.goTextbox {
+	background:#FFFFFF url(images/search.png) no-repeat 412px 6px;
+	border:1px solid #CCCCCC;
+	height:30px;
+	padding:4px 36px 4px 4px;
+	width:440px;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	color: blue;
+	text-align: center;
+}
+
+
+/****************************/
+/* OTHER BUTTONS			*/
+/****************************/
+/* Imageless CSS buttons by CSSButtonGenerator.com */
+
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f5eb9f;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f5eb9f;
+	box-shadow:inset 0px 1px 0px 0px #f5eb9f;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );
+	background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	color:#2f59ad;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 17px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffee66;
+}
+
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );
+	background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');
+	background-color:#ffab23;
+	text-decoration:none;
+}
+
+.button:active {
+	position:relative;
+	top:1px;
+	text-decoration:none;
+}
+
+.button:focus {
+	text-decoration:none;
+}
+
+.operationButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fceaca;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fceaca;
+	box-shadow:inset 0px 1px 0px 0px #fceaca;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffce79), color-stop(1, #eeaf41) );
+	background:-moz-linear-gradient( center top, #ffce79 5%, #eeaf41 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffce79', endColorstr='#eeaf41');
+	background-color:#ffce79;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #eeb44f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:1px 4px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ce8e28;
+}
+
+.operationButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eeaf41), color-stop(1, #ffce79) );
+	background:-moz-linear-gradient( center top, #eeaf41 5%, #ffce79 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeaf41', endColorstr='#ffce79');
+	background-color:#eeaf41;
+	text-decoration:none;
+}
+
+.operationButton:active {
+	position:relative;
+	top:1px;
+	text-decoration:none;
+}
+
+.operationButton:focus {
+	text-decoration:none;
+}
+
+
+/****************************/
+/* OTHERS				 	*/
+/****************************/
+
+p {
+	text-align: center;
+	font-size: 14px;
+}
+
+p.topToolbarLogo {
+	text-align: right;
+	font-size: 28px;
+}
+
+p.pageTitle {
+	font-stretch: extra-expanded;
+	font-style: italic;
+	text-align: right;
+}
+
+p.errorMessage,p.resultMessage {
+	text-align: center;
+}
+
+p.topToolbarButtons {
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover,a:focus {
+	text-decoration: underline;
+}
+
+table {
+	margin: auto;
+	text-align: center;
+	vertical-align: middle;
+	border-width: 2px;
+	border-style: solid;	
+	border-collapse: collapse;
+}
+
+table.layout {
+	border: 0px;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+table.topToolbar {
+	border-width: 4px;
+	margin-top: -4px;
+	width: 100%;
+}
+
+td {
+	border: 0px;
+	font-size: 12;
+}
+
+td.title {
+	text-decoration: underline;
+	font-size: 14;
+	padding: 8px;
+}
+
+td.header {
+	font-weight: bolder;
+	font-size: 12;
+	padding: 6px;
+}
+
+.formField,.rowField {
+	width: 160px;
+	text-align: center;
+}
+
+.rowField {
+	width: 120px;
+	background:#FFFFFF;
+	border:1px solid #CCCCCC;
+	height:20px;
+	font-family:arial;
+	font-size:12px;
+	color: blue;
+}

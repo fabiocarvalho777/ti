@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conn:connector xmlns:dep="http://geronimo.apache.org/xml/ns/deployment-1.2" xmlns:conn="http://geronimo.apache.org/xml/ns/j2ee/connector-1.2">
+
+	<dep:environment>
+		<dep:moduleId>
+			<dep:groupId>console.dbpool</dep:groupId>
+			<dep:artifactId>Derby_Tamoino_DBPool</dep:artifactId>
+			<dep:version>1.0</dep:version>
+			<dep:type>car</dep:type>
+		</dep:moduleId>
+		<dep:dependencies>
+			<dep:dependency>
+				<dep:groupId>org.apache.geronimo.configs</dep:groupId>
+				<dep:artifactId>system-database</dep:artifactId>
+				<dep:version>3.0-beta-1</dep:version>
+				<dep:type>car</dep:type>
+			</dep:dependency>
+		</dep:dependencies>
+	</dep:environment>
+
+	<conn:resourceadapter>
+		<conn:outbound-resourceadapter>
+			<conn:connection-definition>
+				<conn:connectionfactory-interface>javax.sql.DataSource</conn:connectionfactory-interface>
+				<conn:connectiondefinition-instance>
+					<conn:name>Derby_Tamoino_DBPool</conn:name>
+					<conn:config-property-setting name="CreateDatabase">true</conn:config-property-setting>
+					<conn:config-property-setting name="DatabaseName">TamoinoDB</conn:config-property-setting>
+					<conn:config-property-setting name="Password" />
+					<conn:config-property-setting name="UserName" />
+					<conn:config-property-setting name="LoginTimeout" />
+					<conn:connectionmanager>
+						<conn:xa-transaction>
+							<conn:transaction-caching />
+						</conn:xa-transaction>
+						<conn:single-pool>
+							<conn:max-size>10</conn:max-size>
+							<conn:min-size>0</conn:min-size>
+							<conn:match-one />
+						</conn:single-pool>
+					</conn:connectionmanager>
+				</conn:connectiondefinition-instance>
+			</conn:connection-definition>
+		</conn:outbound-resourceadapter>
+	</conn:resourceadapter>
+</conn:connector>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application application-name="Tamoino" xmlns="http://geronimo.apache.org/xml/ns/j2ee/application-2.0"
+	xmlns:sys="http://geronimo.apache.org/xml/ns/deployment-1.2">
+
+	<sys:environment>
+		<sys:moduleId>
+			<sys:groupId>com.tamoino</sys:groupId>
+			<sys:artifactId>tamoino-ear</sys:artifactId>
+			<sys:version>0.0.1-SNAPSHOT</sys:version>
+			<sys:type>car</sys:type>
+		</sys:moduleId>
+		<sys:dependencies>
+			<sys:dependency>
+				<sys:groupId>console.dbpool</sys:groupId>
+				<sys:artifactId>Derby_Tamoino_DBPool</sys:artifactId>
+			</sys:dependency>
+		</sys:dependencies>
+	</sys:environment>
+
+	<!-- <module> <web>tamoino-web.war</web> <web-app xmlns="http://geronimo.apache.org/xml/ns/j2ee/web-2.0.1"> 
+		<sys:environment> <sys:moduleId> <sys:groupId>com.tamoino</sys:groupId> <sys:artifactId>tamoino-web</sys:artifactId> 
+		<sys:version>0.0.1-SNAPSHOT</sys:version> <sys:type>war</sys:type> </sys:moduleId> </sys:environment> 
+		<context-root>/Tamoino</context-root> </web-app> </module> -->
+	<module>
+		<web>tamoino-webservices.war</web>
+		<web-app xmlns="http://geronimo.apache.org/xml/ns/j2ee/web-2.0.1" xmlns:naming="http://geronimo.apache.org/xml/ns/naming-1.2">
+			<sys:environment>
+				<sys:moduleId>
+					<sys:groupId>com.tamoino</sys:groupId>
+					<sys:artifactId>tamoino-webservices</sys:artifactId>
+					<sys:version>0.0.1-SNAPSHOT</sys:version>
+					<sys:type>war</sys:type>
+				</sys:moduleId>
+			</sys:environment>
+			<context-root>/Tamoino/services</context-root>
+
+			<naming:resource-ref>
+ 				<naming:ref-name>jdbc/MyDataSource</naming:ref-name>
+				<naming:resource-link>Derby_Tamoino_DBPool</naming:resource-link>
+			</naming:resource-ref>
+		</web-app>
+	</module>
+
+	<!-- Related to the DataSource auto deployment -->
+	<!--
+	<module>
+		<connector>tranql-connector-derby-embed-xa-1.7.rar</connector>
+		<alt-dd>dbpool_plan.xml</alt-dd>
+	</module>
+	-->
+</application>
