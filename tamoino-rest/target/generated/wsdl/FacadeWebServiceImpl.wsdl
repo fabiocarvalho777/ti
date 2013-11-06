@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="FacadeWebService" targetNamespace="http://webservices.tamoino.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.tamoino.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices.tamoino.com/" elementFormDefault="unqualified" targetNamespace="http://webservices.tamoino.com/" version="1.0">
+<xs:element name="createAccount" type="tns:createAccount"/>
+<xs:element name="createAccountResponse" type="tns:createAccountResponse"/>
+<xs:element name="createEntry" type="tns:createEntry"/>
+<xs:element name="createEntryGroup" type="tns:createEntryGroup"/>
+<xs:element name="createEntryGroupResponse" type="tns:createEntryGroupResponse"/>
+<xs:element name="createEntryResponse" type="tns:createEntryResponse"/>
+<xs:element name="deleteEntryById" type="tns:deleteEntryById"/>
+<xs:element name="deleteEntryByIdResponse" type="tns:deleteEntryByIdResponse"/>
+<xs:element name="deleteEntryGroupById" type="tns:deleteEntryGroupById"/>
+<xs:element name="deleteEntryGroupByIdResponse" type="tns:deleteEntryGroupByIdResponse"/>
+<xs:element name="getAccountByCredentials" type="tns:getAccountByCredentials"/>
+<xs:element name="getAccountByCredentialsResponse" type="tns:getAccountByCredentialsResponse"/>
+<xs:element name="getAllActiveKeys" type="tns:getAllActiveKeys"/>
+<xs:element name="getAllActiveKeysResponse" type="tns:getAllActiveKeysResponse"/>
+<xs:element name="getEntryById" type="tns:getEntryById"/>
+<xs:element name="getEntryByIdResponse" type="tns:getEntryByIdResponse"/>
+<xs:element name="getEntryGroupById" type="tns:getEntryGroupById"/>
+<xs:element name="getEntryGroupByIdResponse" type="tns:getEntryGroupByIdResponse"/>
+<xs:element name="getEntryGroupDTOsListByAccountId" type="tns:getEntryGroupDTOsListByAccountId"/>
+<xs:element name="getEntryGroupDTOsListByAccountIdResponse" type="tns:getEntryGroupDTOsListByAccountIdResponse"/>
+<xs:element name="getEntryGroupDTOsMapByAccountId" type="tns:getEntryGroupDTOsMapByAccountId"/>
+<xs:element name="getEntryGroupDTOsMapByAccountIdResponse" type="tns:getEntryGroupDTOsMapByAccountIdResponse"/>
+<xs:element name="getEntrySimpleDTOsByAccountId" type="tns:getEntrySimpleDTOsByAccountId"/>
+<xs:element name="getEntrySimpleDTOsByAccountIdResponse" type="tns:getEntrySimpleDTOsByAccountIdResponse"/>
+<xs:element name="getPublicEntryGroupDTO" type="tns:getPublicEntryGroupDTO"/>
+<xs:element name="getPublicEntryGroupDTOResponse" type="tns:getPublicEntryGroupDTOResponse"/>
+<xs:element name="getSingleEntryGroupIdByAccountId" type="tns:getSingleEntryGroupIdByAccountId"/>
+<xs:element name="getSingleEntryGroupIdByAccountIdResponse" type="tns:getSingleEntryGroupIdByAccountIdResponse"/>
+<xs:element name="getURLByKey" type="tns:getURLByKey"/>
+<xs:element name="getURLByKeyResponse" type="tns:getURLByKeyResponse"/>
+<xs:element name="setEntryActiveById" type="tns:setEntryActiveById"/>
+<xs:element name="setEntryActiveByIdResponse" type="tns:setEntryActiveByIdResponse"/>
+<xs:complexType name="createAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:accountDTO"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="accountDTO">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createAccountResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:account"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="account">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="deleteEntryGroupById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteEntryGroupByIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getAllActiveKeys">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getAllActiveKeysResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPublicEntryGroupDTO">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getPublicEntryGroupDTOResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:entryGroupDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="entryGroupDTO">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getURLByKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getURLByKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getSingleEntryGroupIdByAccountId">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getSingleEntryGroupIdByAccountIdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryGroupById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryGroupByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:entryGroup"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="entryGroup">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getEntryGroupDTOsMapByAccountId">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryGroupDTOsMapByAccountIdResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:long"/>
+                  <xs:element minOccurs="0" name="value" type="tns:entryGroupDTO"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hashMap">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractMap">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType abstract="true" name="abstractMap">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getEntrySimpleDTOsByAccountId">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntrySimpleDTOsByAccountIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:entrySimpleDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="entrySimpleDTO">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:entry"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="entry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="activationDate" type="xs:dateTime"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="expirationDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:entrySimpleDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:entry"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryGroupDTOsListByAccountId">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEntryGroupDTOsListByAccountIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:entryGroupDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAccountByCredentials">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAccountByCredentialsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:account"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="setEntryActiveById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+      <xs:element name="arg1" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="setEntryActiveByIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="deleteEntryById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteEntryByIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="createEntryGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:account"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="createEntryGroupResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:entryGroup"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createAccount">
+    <wsdl:part name="parameters" element="tns:createAccount">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryGroupDTOsMapByAccountIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntryGroupDTOsMapByAccountIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryByIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntryByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEntryGroupResponse">
+    <wsdl:part name="parameters" element="tns:createEntryGroupResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntrySimpleDTOsByAccountIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntrySimpleDTOsByAccountIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEntryById">
+    <wsdl:part name="parameters" element="tns:deleteEntryById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEntryGroupByIdResponse">
+    <wsdl:part name="parameters" element="tns:deleteEntryGroupByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryGroupByIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntryGroupByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryGroupDTOsMapByAccountId">
+    <wsdl:part name="parameters" element="tns:getEntryGroupDTOsMapByAccountId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setEntryActiveById">
+    <wsdl:part name="parameters" element="tns:setEntryActiveById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setEntryActiveByIdResponse">
+    <wsdl:part name="parameters" element="tns:setEntryActiveByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEntryGroupById">
+    <wsdl:part name="parameters" element="tns:deleteEntryGroupById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryGroupById">
+    <wsdl:part name="parameters" element="tns:getEntryGroupById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPublicEntryGroupDTO">
+    <wsdl:part name="parameters" element="tns:getPublicEntryGroupDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllActiveKeysResponse">
+    <wsdl:part name="parameters" element="tns:getAllActiveKeysResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllActiveKeys">
+    <wsdl:part name="parameters" element="tns:getAllActiveKeys">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEntry">
+    <wsdl:part name="parameters" element="tns:createEntry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSingleEntryGroupIdByAccountIdResponse">
+    <wsdl:part name="parameters" element="tns:getSingleEntryGroupIdByAccountIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountByCredentialsResponse">
+    <wsdl:part name="parameters" element="tns:getAccountByCredentialsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntrySimpleDTOsByAccountId">
+    <wsdl:part name="parameters" element="tns:getEntrySimpleDTOsByAccountId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryById">
+    <wsdl:part name="parameters" element="tns:getEntryById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEntryResponse">
+    <wsdl:part name="parameters" element="tns:createEntryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEntryGroup">
+    <wsdl:part name="parameters" element="tns:createEntryGroup">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSingleEntryGroupIdByAccountId">
+    <wsdl:part name="parameters" element="tns:getSingleEntryGroupIdByAccountId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAccountResponse">
+    <wsdl:part name="parameters" element="tns:createAccountResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryGroupDTOsListByAccountId">
+    <wsdl:part name="parameters" element="tns:getEntryGroupDTOsListByAccountId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEntryGroupDTOsListByAccountIdResponse">
+    <wsdl:part name="parameters" element="tns:getEntryGroupDTOsListByAccountIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountByCredentials">
+    <wsdl:part name="parameters" element="tns:getAccountByCredentials">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getURLByKeyResponse">
+    <wsdl:part name="parameters" element="tns:getURLByKeyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getURLByKey">
+    <wsdl:part name="parameters" element="tns:getURLByKey">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPublicEntryGroupDTOResponse">
+    <wsdl:part name="parameters" element="tns:getPublicEntryGroupDTOResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEntryByIdResponse">
+    <wsdl:part name="parameters" element="tns:deleteEntryByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FacadeWebService">
+    <wsdl:operation name="createAccount">
+      <wsdl:input name="createAccount" message="tns:createAccount">
+    </wsdl:input>
+      <wsdl:output name="createAccountResponse" message="tns:createAccountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEntryGroupById">
+      <wsdl:input name="deleteEntryGroupById" message="tns:deleteEntryGroupById">
+    </wsdl:input>
+      <wsdl:output name="deleteEntryGroupByIdResponse" message="tns:deleteEntryGroupByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllActiveKeys">
+      <wsdl:input name="getAllActiveKeys" message="tns:getAllActiveKeys">
+    </wsdl:input>
+      <wsdl:output name="getAllActiveKeysResponse" message="tns:getAllActiveKeysResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPublicEntryGroupDTO">
+      <wsdl:input name="getPublicEntryGroupDTO" message="tns:getPublicEntryGroupDTO">
+    </wsdl:input>
+      <wsdl:output name="getPublicEntryGroupDTOResponse" message="tns:getPublicEntryGroupDTOResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getURLByKey">
+      <wsdl:input name="getURLByKey" message="tns:getURLByKey">
+    </wsdl:input>
+      <wsdl:output name="getURLByKeyResponse" message="tns:getURLByKeyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSingleEntryGroupIdByAccountId">
+      <wsdl:input name="getSingleEntryGroupIdByAccountId" message="tns:getSingleEntryGroupIdByAccountId">
+    </wsdl:input>
+      <wsdl:output name="getSingleEntryGroupIdByAccountIdResponse" message="tns:getSingleEntryGroupIdByAccountIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryGroupById">
+      <wsdl:input name="getEntryGroupById" message="tns:getEntryGroupById">
+    </wsdl:input>
+      <wsdl:output name="getEntryGroupByIdResponse" message="tns:getEntryGroupByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryGroupDTOsMapByAccountId">
+      <wsdl:input name="getEntryGroupDTOsMapByAccountId" message="tns:getEntryGroupDTOsMapByAccountId">
+    </wsdl:input>
+      <wsdl:output name="getEntryGroupDTOsMapByAccountIdResponse" message="tns:getEntryGroupDTOsMapByAccountIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntrySimpleDTOsByAccountId">
+      <wsdl:input name="getEntrySimpleDTOsByAccountId" message="tns:getEntrySimpleDTOsByAccountId">
+    </wsdl:input>
+      <wsdl:output name="getEntrySimpleDTOsByAccountIdResponse" message="tns:getEntrySimpleDTOsByAccountIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryById">
+      <wsdl:input name="getEntryById" message="tns:getEntryById">
+    </wsdl:input>
+      <wsdl:output name="getEntryByIdResponse" message="tns:getEntryByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEntry">
+      <wsdl:input name="createEntry" message="tns:createEntry">
+    </wsdl:input>
+      <wsdl:output name="createEntryResponse" message="tns:createEntryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryGroupDTOsListByAccountId">
+      <wsdl:input name="getEntryGroupDTOsListByAccountId" message="tns:getEntryGroupDTOsListByAccountId">
+    </wsdl:input>
+      <wsdl:output name="getEntryGroupDTOsListByAccountIdResponse" message="tns:getEntryGroupDTOsListByAccountIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountByCredentials">
+      <wsdl:input name="getAccountByCredentials" message="tns:getAccountByCredentials">
+    </wsdl:input>
+      <wsdl:output name="getAccountByCredentialsResponse" message="tns:getAccountByCredentialsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEntryActiveById">
+      <wsdl:input name="setEntryActiveById" message="tns:setEntryActiveById">
+    </wsdl:input>
+      <wsdl:output name="setEntryActiveByIdResponse" message="tns:setEntryActiveByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEntryById">
+      <wsdl:input name="deleteEntryById" message="tns:deleteEntryById">
+    </wsdl:input>
+      <wsdl:output name="deleteEntryByIdResponse" message="tns:deleteEntryByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEntryGroup">
+      <wsdl:input name="createEntryGroup" message="tns:createEntryGroup">
+    </wsdl:input>
+      <wsdl:output name="createEntryGroupResponse" message="tns:createEntryGroupResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FacadeWebServiceSoapBinding" type="tns:FacadeWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createAccount">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createAccount">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createAccountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEntryGroupById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteEntryGroupById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteEntryGroupByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllActiveKeys">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllActiveKeys">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllActiveKeysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPublicEntryGroupDTO">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPublicEntryGroupDTO">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPublicEntryGroupDTOResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getURLByKey">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getURLByKey">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getURLByKeyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryGroupById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntryGroupById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntryGroupByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSingleEntryGroupIdByAccountId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSingleEntryGroupIdByAccountId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSingleEntryGroupIdByAccountIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryGroupDTOsMapByAccountId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntryGroupDTOsMapByAccountId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntryGroupDTOsMapByAccountIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntrySimpleDTOsByAccountId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntrySimpleDTOsByAccountId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntrySimpleDTOsByAccountIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntryById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntryByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEntry">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createEntry">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createEntryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEntryGroupDTOsListByAccountId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEntryGroupDTOsListByAccountId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEntryGroupDTOsListByAccountIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountByCredentials">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAccountByCredentials">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAccountByCredentialsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEntryActiveById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setEntryActiveById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setEntryActiveByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEntryById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteEntryById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteEntryByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEntryGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createEntryGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createEntryGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FacadeWebService">
+    <wsdl:port name="FacadeWebServiceImplPort" binding="tns:FacadeWebServiceSoapBinding">
+      <soap:address location="http://localhost:9090/FacadeWebServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

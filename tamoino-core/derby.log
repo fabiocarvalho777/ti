@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+2013-11-06 02:17:24.450 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.6.1.0 - (938214): instance a816c00e-0142-2b33-3077-000006579440 
+on database directory memory:C:\Users\fabio\Documents\development\dev\projects\ti\tamoino-core\tidb   with class loader sun.misc.Launcher$AppClassLoader@37af78ce
+
+Database Class Loader started - derby.database.classpath=''
+
+2013-11-06 02:17:26.463 GMT:
+Shutting down instance a816c00e-0142-2b33-3077-000006579440 with class loader sun.misc.Launcher$AppClassLoader@37af78ce 
+----------------------------------------------------------------

@@ -1,0 +1,38 @@
+<project name="jpa_enhance_builder">
+
+	<property name="openjpa.libs" location="C:\Users\fabio\.m2\repository\org\apache\openjpa\openjpa-all\2.2.0" />
+	<property name="build.dir" location="${basedir}/target/classes" />
+
+	<path id="enhance.classpath">
+		<fileset dir="${openjpa.libs}">
+			<include name="**/*.jar" />
+			<exclude name="*source*.jar" />
+		</fileset>
+		<pathelement location="${build.dir}" />
+	</path>
+
+	<property name="enhance_classpath" refid="enhance.classpath" />
+
+	<target name="openjpa.libs.check" unless="openjpa.libs">
+		<fail message="Please set -Dopenjpa.libs in your builder configuration!" />
+	</target>
+
+	<target name="build.dir.check" unless="build.dir">
+		<fail message="Please set -Dbuild.dir in your builder configuration!" />
+	</target>
+
+	<target name="enhance" depends="openjpa.libs.check, build.dir.check">
+<!--
+		<echo message="OpenJPA libs enhance.classpath: ${enhance_classpath}" />
+-->
+
+		<taskdef name="openjpac" classname="org.apache.openjpa.ant.PCEnhancerTask">
+			<classpath refid="enhance.classpath" />
+		</taskdef>
+		
+		<openjpac>
+			<classpath refid="enhance.classpath" />
+		</openjpac>
+	</target>
+
+</project>
