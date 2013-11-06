@@ -1,0 +1,106 @@
+TODO
+####
+
+Usar Maven para controlar build
+Ao criar nova word, validar URL com javascript, para assegurar que começa necessariamente com http:// ou https://
+validar form de sigin com javasscript
+	validar campos nulos e email (@ blah blah)
+Criar entidade de páginas que saibam dizer tudo sobre si mesmas, como titulo, botoes da toolbar, etc
+	Configurar tais páginas usando XML
+	Será que o XML também dirá quem será o jsp? qual seria a vantagem disso?
+Fazer DTOs dentro do pacote Persistence. As classes de model tem factories para DTOs
+	Finalizar DTO factories
+Substituir Webmee por Tamoino na UI
+Remover qualquer referência no código ou UI que se remeta a palavra Webmee. Deixar genérico, sem qualquer referência ao nome do produto
+Criar abstract factory para os DAOS (dependendo de cada DBMS usado, como em http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html)
+	Colocar o DBConnHelper dentro de cada implementação de DAOFactory
+Adicionar parametros de requests em Page, fazendo referências em JSPs e Servlets
+Colocar logo na UI
+Enumerar de alguma forma todos os atributos de Session
+O DBHelper vai se desmembrar em DAOs individuais apra Entities ;-)	
+Adaptar interfaces e implementações de DAOs para uso de DTOs
+	1-Talvez os DAOs nunca retornem um BO (Business Object), talvez eles sempre retornem um DTO (DTO->BO)
+	2-Talvez os DAOs nunca recebam um BO (Business Object) como parâmetro, talvez eles sempre recebam valores individuais ou um DTO (BO->DTO)
+	3-Alguns dizem que BO->DTO é o correto, e que DTO->BO não faz o menor sentido. Se isso for verdade, então provavelmente os DAOs salvam DTOs e retornam BOs. Mas ainda assim, nesse caso como os BOs seriam enviados pelos DAOs via rede de volta? Afinal, não foi isso que justificou a criação dos DTOs quando houve a necessidade de enviar os BOs pela rede aos DAOs? Estou pendendo mais para as duas primeiras afirmações.
+	4-Caso 1 e 2 sejam verdade, então os clientes dos DAOs, sejam eles quem for, devem se encarregar de fazer as conversões DTO->BO (ao receberem um DTO) e BO->DTO (antes de enviarem um DTO). Obviamente tais clientes podem delegar essa tarefa a alguém especializado nessas conversões.
+	* Os DTOs não precisam se restringir às características dos BOs. Eles podem guardar menos informações, dependendo do contexto e de como serão necessários. Além disso, um único DTO pode conter informações sobre mais de um BO. É claro que em casos como esses, os BOs envolvidos sempre tem um forte relacionamento entre si.
+	* Os DTOs são usados em outros contextos também, além da comunicação com DAOs, como por exemplo quando enviar informação à camada de apresentação.
+Adaptar controllers para o uso de novos DAOs
+Fixar posições dos elementos no toptoolbar (para que sejam as mesmas em qualquer página)
+TI está explodindo quando usuário tenta adicionar uma palavra que já existe (testar ambos os casos, quando a palvra foi previamente adicionada pelo mesmo usuário ou por outro)
+Adicionar o email do usuário no toptoolbar quando logado
+Fazer o container subir o servidor do HSQLDB, assim facilitará os testes. Porém, parametrizar essa opção, para que possa ser desligada em modo produção.
+Criar um FrontController servlet
+Adicionar o nome da página corrente no banner do topo
+O termo Word está se tornando confuso. Internamente, ele significa uma coluna da tabela Entry e um atributo da entidade Entry. Porém, para o usuário final, ele significa a Entry toda. Isso precisa ser resolvido.
+Adicionar flag no servidor HSQLDB em memória para ter ou não demo data
+Estudar e adicionar FrontController
+Substituir "enabled" por "active" em todo o projeto em Entry
+Mover todo o código Web para um projeto no Eclipse separado e dependente do TI core. Repensar o deployment (dois wars separados dentro de um EAR?)
+Adicionar suporte a grupos
+Adiconar Hibernate
+Estudar Facade (Session Facades, etc). Preciso disso?
+Estudar e adicionar Facade
+Estudar Adapter. Preciso disso? Muito provavelmente sim. Dessa forma:
+	M - model (já criados, OK)
+	V - JSPs, CSS, HTML, JS
+	C - Servlets
+	-> DAOs (usando DTOs) -> JDBC -> DB 
+Modificar EntryDAO e suas implementações. Tudo tem que ser basead em Account ID, não mais em email. 
+Adicionar controle transacional (nos DAOs) e gerenciar melhor as conexões com o DB
+Usar JUnit para testes unitários
+Rever todas sentenças SQL nos DAOs. Os campos inteiros devem user %d ao invés de %s. Procurar defeitos. Deixar tudo em letas maiúsculas.
+Criar enumerations a partir de tipos de dados como Account type e Group type no bando de dados
+	Refletir sobre tornar o GroupType uma enum no código Java, ao invés de uma entidade. Porém, no banco permance como tabela 
+Transformar todos SQL sentences nos DAOs em constantes parametrizadas, no topo das classes
+Criar atributos privados para os DAOs para ids imutáveis e usados frequentemente, como por exemplo o ID de group type para o grupo privado
+Renomear Group para EntryGroup e GroupType para EntryGroupType em todo o projeto
+Corrigir script de popular BD com dados funcionais e demo data. Eles devem usar JPQL ou serem substituído por algo melhor, provavelmente código.
+Defirnir todos os ids como tipo long, ao invés de int!!
+Todas as queries também devem estar dentro de transações!!
+Introduzir Spring
+Entender melhor como Separar o projeto todos em dois (Core e Web). Por exemplo, onde fica a REST API? No Core?
+Estudar (JBoss 7 + JPA) vs (Spring + JPA Hibernate)
+Definir o servidor de banco de dados em memória como um bean singleton no Spring
+
+
+
+
+Pesquisar melhor design patterns. Sinto que falta algo entre o Facade e os DAOS. E quanto a adapters? Preciso de adpater em algum lugar?
+	Renomear Controllers para Adapters? Criar interfaces para todos os Adapters?
+Segurança, pesquisar e aplicar proteção para SQL Injection e Cross-site scripting
+Estudar e implementar Connection pooling para os DAOs
+Substituir application managed JPA por container managed JPA
+Estudar e implementar cache de segundo nível (como EHCACHE) para os DAOs
+Pesquisar ferramentas como AutoMapper para saber se elas podem ser úteis para gerarem os DTOs que eu uso. Também entender como isso se relaciona com JPA/ORM tool
+Pesquisar ferramentas como DAO4J para saber se elas podem ser úteis para gerarem os DAOs que eu uso. Também entender como isso se relaciona com JPA/ORM tool
+Ao criar nova word, validar URL para assegurar que ela existe (provavelmente feita server-side, mas talvez dê para fazer via javascript também)
+Estudar onde inserir validação, e tratar a validação do projeto todo (pesquisar Bean Validation do JEE 6)
+	O próprio Hibernate/JBoss oferecem validators, será que o Geronimo ou o próprio JEE 6 tb? Pesquisar!
+	Adicionar validação também do lado do servidor (em que camada?)
+	Verificar tamanhos mínimos e máximos de caracteres para nomes de group names e keys. Assegurar no user agent e servidor que isso é verificado
+Estudar e substituir todos HTTP request assíncronos com forms por REST calls
+Substituir web.xml por anotações servlet-api 3.0
+Adicionar logger (Pesquisar melhor ferramenta. Log4J talvez?)
+Implementar o equals() de todas entidades e seus DTOs
+Todos os JUnits não devem usar nada que venha de demo data. Seus metodos setup devem preparar tudo que eles precisam, e seus métodos clean devem limpar tudo que foi preparado
+Gerenciar melhor o tratamento de exceções do projeto todo
+	Rever todas as exceções lançadas, principalmente às lançadas pelos DAOs, e reencaminhadas ao Facade e Controlers. Fazer limpeza.
+Melhorar o javadoc do projeto todo
+Resolver todos warnings
+Adicionar "activationDate" em Entry. Esse campo pode ser null, mas se não for, a Entry estará obrigatoriamente desabilitada assim que criada, e automaticamente será ativada na data estabelecida.
+Adicionar verificador de email ao criar nova conta (um código com link deve ser enviado ao email, só depois disso a conta é ativada). Para tal, deverá haver um atributo a mais em Account chamado "active".
+Fazer refactoring em todos os DTOs. Eliminar os que não são usados, e enxugar os que são, deletando atributos desnecessários, melhorando o escopo, e talvez até combinando diferentes DTOs
+Struts vs Spring MVC (Ir direto para o Spring para não perder tempo!)
+Adicionar feature para deletar conta usando cliente de WebService (único cliente, com diferentes tipos de webservice)
+Adicionar à especificação algo que garanta que nada (group, entry, etc) nunca será de fato deletado no sistema, para que os dados estatísticos não se percam. Eles serão somente deletados do ponto de vista do usuário
+Pesquisar como aplicar índices a algumas colunas do banco de dados. Pelo menos ENTRY_KEY certamente precisará de um índice.
+Pesquisar todas as opções de PaaS para usar. Amazon EC2 para ser uma boa opção, mas não é a única. Pesquisar!
+Pesquisae Service Data Object API
+Pesquisar e usar JPA Cascade Operations
+Preciso do Mockito?
+Criar testes unitários para todos os casos de exceções dos DAOs
+Adicionar um build number na UI, próximo ao link de key list
+Usar Quartz (possui integração com Spring) para agendar a ativação e desativação de Entries
+Substituir HSQLDB por Derby
+	Incluir servidor standalone (fora do Geronimo) somente para testes unitários

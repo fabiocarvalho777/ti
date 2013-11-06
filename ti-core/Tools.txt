@@ -1,0 +1,12 @@
+Tools:
+
+Tomcat
+Maven
+HSQLDB
+JDBC
+
+JBoss
+Spring IoC
+Spring JPA
+Spring MVC
+PostgreeSQL
